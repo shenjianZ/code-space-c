@@ -6,6 +6,7 @@ int binarySearch(int * nums, int target, int left, int right);
 int main() {
     int arr[]={1, 3, 4, 6, 7,8, 10, 11, 13, 15};
     printf("%d",search(arr,10,3));
+    printf("\n");
     return 0;
 }
 int search(int* nums,int numsize,int target){

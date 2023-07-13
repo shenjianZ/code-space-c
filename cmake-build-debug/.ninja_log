@@ -1,3 +1,6 @@
 # ninja log v5
-1	151	7109535344492913	CMakeFiles/git_space_c.dir/main.c.obj	258c757ac93f0bd8
+3	139	7109998583168252	CMakeFiles/git_space_c.dir/main.c.obj	258c757ac93f0bd8
+19	109	7109998582866199	CMakeFiles/git_space_c.dir/List/listNode.c.obj	c5a6027d157e7a64
 12	157	7109535344531646	CMakeFiles/git_space_c.dir/List/arrayList.c.obj	7e6ed187eeda660b
+27	143	7109998583205357	CMakeFiles/git_space_c.dir/demo.c.obj	97a19e8be75051cb
+11	162	7109998583394672	CMakeFiles/git_space_c.dir/List/seqList.c.obj	35c767fdaee5a5fd

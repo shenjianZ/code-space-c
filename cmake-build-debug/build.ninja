@@ -55,14 +55,32 @@ build CMakeFiles/git_space_c.dir/main.c.obj: C_COMPILER__git_space_c_Debug C$:/U
   OBJECT_DIR = CMakeFiles\git_space_c.dir
   OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir
 
-build CMakeFiles/git_space_c.dir/List/arrayList.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/arrayList.c || cmake_object_order_depends_target_git_space_c
-  DEP_FILE = CMakeFiles\git_space_c.dir\List\arrayList.c.obj.d
+build CMakeFiles/git_space_c.dir/demo.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/demo.c || cmake_object_order_depends_target_git_space_c
+  DEP_FILE = CMakeFiles\git_space_c.dir\demo.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu99
+  OBJECT_DIR = CMakeFiles\git_space_c.dir
+  OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir
+
+build CMakeFiles/git_space_c.dir/List/SeqList.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/SeqList.c || cmake_object_order_depends_target_git_space_c
+  DEP_FILE = CMakeFiles\git_space_c.dir\List\SeqList.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
   OBJECT_DIR = CMakeFiles\git_space_c.dir
   OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir\List
 
-build CMakeFiles/git_space_c.dir/List/listNode.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/listNode.c || cmake_object_order_depends_target_git_space_c
-  DEP_FILE = CMakeFiles\git_space_c.dir\List\listNode.c.obj.d
+build CMakeFiles/git_space_c.dir/List/SinglyList.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/SinglyList.c || cmake_object_order_depends_target_git_space_c
+  DEP_FILE = CMakeFiles\git_space_c.dir\List\SinglyList.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu99
+  OBJECT_DIR = CMakeFiles\git_space_c.dir
+  OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir\List
+
+build CMakeFiles/git_space_c.dir/List/CirDoubleList.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/CirDoubleList.c || cmake_object_order_depends_target_git_space_c
+  DEP_FILE = CMakeFiles\git_space_c.dir\List\CirDoubleList.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu99
+  OBJECT_DIR = CMakeFiles\git_space_c.dir
+  OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir\List
+
+build CMakeFiles/git_space_c.dir/List/DoubleList.c.obj: C_COMPILER__git_space_c_Debug C$:/Users/15202/CLionProjects/git-space-c/List/DoubleList.c || cmake_object_order_depends_target_git_space_c
+  DEP_FILE = CMakeFiles\git_space_c.dir\List\DoubleList.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
   OBJECT_DIR = CMakeFiles\git_space_c.dir
   OBJECT_FILE_DIR = CMakeFiles\git_space_c.dir\List
@@ -75,7 +93,7 @@ build CMakeFiles/git_space_c.dir/List/listNode.c.obj: C_COMPILER__git_space_c_De
 #############################################
 # Link the executable git_space_c.exe
 
-build git_space_c.exe: C_EXECUTABLE_LINKER__git_space_c_Debug CMakeFiles/git_space_c.dir/main.c.obj CMakeFiles/git_space_c.dir/List/arrayList.c.obj CMakeFiles/git_space_c.dir/List/listNode.c.obj
+build git_space_c.exe: C_EXECUTABLE_LINKER__git_space_c_Debug CMakeFiles/git_space_c.dir/main.c.obj CMakeFiles/git_space_c.dir/demo.c.obj CMakeFiles/git_space_c.dir/List/SeqList.c.obj CMakeFiles/git_space_c.dir/List/SinglyList.c.obj CMakeFiles/git_space_c.dir/List/CirDoubleList.c.obj CMakeFiles/git_space_c.dir/List/DoubleList.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\git_space_c.dir
