@@ -1,5 +1,5 @@
 //
-// Created by 15202 on 2023/7/14.
+// Created by shenjianZ on 2023/7/14.
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,71 +20,110 @@ void initList(Node node){
 
 bool insertList(Node head, E element, int index){
     if(head==NULL || index<1) return 0;
-    Node front;
-    while (--index){
-        front = head->next;
-        head=head->next;
+    Node front=head;
+    while (index>1){
+        front=front->next;
+        index--;
     }
+    head=front->next;
     Node newNode= malloc(sizeof (struct ListNode));
     newNode->element=element;
-    Node temp=front->next;
-    front->next=newNode;
-    newNode->next=temp;
-    //newNode->next=front->next;
+    if(front->next==NULL) {
+        front->next=newNode;
+        newNode->next=NULL;
+        return 1;
+    }
+    //Node temp=front->next;
     //front->next=newNode;
+    //newNode->next=temp;
+    front->next=newNode;
+    newNode->next=head;
+
     //也可以，与前30-32代码作用相同
     return 1;
 }
 
 bool deleteList(Node head, int index){
     if(head==NULL || index<1) return 0;
-    Node front;
-    //while循环执行index-1次,到达删除节点的前驱节点位置
-    while(--index){
-        front=head->next;
-        head=head->next;
+    Node front=head;
+    while (index>1){
+        front=front->next;
+        index--;
     }
-    Node temp=front->next;
+    head=front->next;
+    if(head==NULL){
+        front->next=NULL;
+        return 1;
+    }
+    Node temp=head;
     front->next=front->next->next;
     free(temp);//释放被删除节点的内存
     return 1;
 }
 
-E * getList(Node head, int index){
-    if(head==NULL || index<1) return 0;
-    Node node;
-    //do...while循环执行index次，到达删除节点的本身位置
-    do{
-        node=head->next;
-        head=head->next;
-    }while(--index);
-    return &(node->element);
+E getList(Node head, int index) {
+    if (head == NULL || index < 1)
+        return 0;
+    Node front = head;
+    while (index > 1) {
+        front = front->next;
+        index--;
+    }
+    head = front->next;
+    if (head != NULL) {
+        int element = head->element;
+        return element;
+    }
+    return 0;
 }
 
 int findList(Node head, E element){
     if(head==NULL) return 0;
-    Node node = NULL;
+    Node node=head->next;
     int i=1;
-    while(node==NULL){
-        //while循环条件中的node==NULL等价于node
+    while(node!=NULL){
+        //while循环条件中的node!=NULL等价于node
         if(node->element==element)
             return i;
-        node=head;
         node=node->next;
         i++;
-        if
     }
-    return -1
+    return -1;
 }
 
 int sizeList(Node head){
-    int resSize=0;
-    Node node = NULL;
-    while(node==NULL){
-        //while循环条件中的node==NULL等价于node
-        node=head;
+    //因为头结点没有存储数据
+    int resSize=-1;
+    Node node = head;
+    while(node!=NULL){
+        //while循环条件中的node!=NULL等价于node
         node=node->next;
         resSize++;
     }
     return resSize;
+}
+
+void printList(Node head){
+    Node node = head->next;
+    while(node!=NULL){
+        //while循环条件中的node!=NULL等价于node
+        printf("%d ",node->element);
+        node=node->next;
+    }
+}
+
+int main() {
+    struct ListNode head;
+    initList(&head);
+    for (int i = 1; i <= 10; ++i) {
+        insertList(&head, i * 100, i);
+    }
+    deleteList(&head, 3);   //这里我们尝试删除一下第一个元素
+    printList(&head);
+    printf("\n");
+    printf("%d", sizeList(&head));
+    printf("\n");
+    printf("%d ", getList(&head,2));
+    printf("\n");
+    printf("%d ", findList(&head,500));
 }
