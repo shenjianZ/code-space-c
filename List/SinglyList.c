@@ -116,9 +116,10 @@ int main() {
     struct ListNode head;
     initList(&head);
     for (int i = 1; i <= 10; ++i) {
-        insertList(&head, i * 100, i);
+        insertList(&head, i * 100, i);//尾插入
     }
-    deleteList(&head, 3);   //这里我们尝试删除一下第一个元素
+    insertList(&head,0,5); //中间插入
+    deleteList(&head, 3);   //这里我们尝试删除一下第三个元素
     printList(&head);
     printf("\n");
     printf("%d", sizeList(&head));
