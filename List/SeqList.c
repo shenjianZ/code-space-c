@@ -119,6 +119,7 @@ int main(){
         printf("%d",sizeList(&list));
 
 
+
     }
     else{
         printf("%s","初始化失败");
