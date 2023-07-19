@@ -1,4 +1,4 @@
 /cmake-build-debug/
-.idea
-.exe
-.txt
+*.idea
+*.exe
+*.txt
