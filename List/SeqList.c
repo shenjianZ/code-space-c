@@ -7,15 +7,15 @@
 #include <stdbool.h>
 typedef int E;   // 元素类型
 
-struct List{
-    E * array;  //底层数组
+struct SeqList{
+    E * array;      //底层数组
     int capacity;   // 容量
-    int size;
+    int size;       //表长
 };
 
-typedef struct List * SeqList;  // 指针别名
+typedef struct SeqList* List;  // 指针别名
 
-bool initList(SeqList list){
+bool initList(List list){
     list->array= malloc(sizeof(E)*10);
     if(list==NULL) return 0;
     list->capacity=10;
@@ -23,13 +23,16 @@ bool initList(SeqList list){
     return 1;
 }
 
-void printArrayList(SeqList list){
+void printArrayList(List list){
     for (int i = 0; i < list->size; ++i)
         printf("%d ",list->array[i]);
     printf("\n");
 }
 
-bool insertList(SeqList list,E element ,int index){
+/*
+ * 索引合法范围 [1,size]
+ */
+bool insertList(List list,E element ,int index){
     if(index<1 || index>list->size+1) return 0;
     if(list->size==list->capacity){
         int newCapacity=list->capacity+(list->capacity>>1);
@@ -45,7 +48,10 @@ bool insertList(SeqList list,E element ,int index){
     return 1;
 }
 
-bool deleteList(SeqList list, int index){
+/*
+ * 索引合法范围 [1,size]
+ */
+bool deleteList(List list, int index){
     if(index<1 || index>list->size) return 0;
     for (int i = index; i < list->size ; ++i) {
         list->array[i-1]=list->array[i];
@@ -54,47 +60,47 @@ bool deleteList(SeqList list, int index){
     return 1;
 }
 
-void destroyList(SeqList list){
+void destroyList(List list){
     if(list==NULL) return;
     free(list->array);
     free(list);
 }
 
-E * getList(SeqList list,int index){
+E * getList(List list,int index){
     return &list->array[index-1];
 }
 
-bool setList(SeqList list,int index,E element){
+bool setList(List list,int index,E element){
     if(index<1 || index>list->size) return false;
     list->array[index-1]=element;
-    list->size++;
     return true;
 }
 
-int findList(SeqList list ,E element){
+int findList(List list ,E element){
     for (int i = 0; i < list->size; ++i)
         if(list->array[i]==element) return i+1;
     return -1;
 }
 
-bool isEmptyList(SeqList list){
+bool isEmptyList(List list){
     return list->size == 0;
 }
 
-bool isFullList(SeqList list){
+bool isFullList(List list){
     return list->size == list->capacity;
 }
 
-int getCapacityList(SeqList list){
+int getCapacityList(List list){
     return list->capacity;
 }
 
-int sizeList(SeqList list){
+int sizeList(List list){
     return list->size;
 }
 
-bool setCapacityList(SeqList list,int newCapacity){
-    if(list->size > newCapacity) return false;
+bool setCapacityList(List list,int newCapacity){
+    if(list->size > newCapacity && newCapacity > list->capacity)
+        return false;
     int* newArray= realloc(list->array,sizeof(E)*newCapacity);
     if(newArray == NULL) return false;
     list->array=newArray;
@@ -102,51 +108,19 @@ bool setCapacityList(SeqList list,int newCapacity){
     return true;
 }
 
-void clearList(SeqList list){
+void clearList(List list){
     list->size=0;
 }
 
 int main(){
-    struct List list;
+    struct SeqList list;
     if(initList(&list)){
-        for (int i = 0; i < 30; ++i)
+        for (int i = 1; i < 10; ++i)
             insertList(&list, i, i);
         printArrayList(&list);
-        printf("%d",*getList(&list,2));
-        printf("\n");
-        printf("%d",findList(&list,5));
-        printf("\n");
-        printf("%d",sizeList(&list));
-
-
-
-    }
-    else{
-        printf("%s","初始化失败");
+        printf("%d\n",*getList(&list,2));  //返回第二个元素
+        printf("%d\n",findList(&list,5)); //返回元素 5 对应的索引;
+        printf("%d",sizeList(&list)); //返回表长
+        clearList(&list);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

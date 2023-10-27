@@ -58,7 +58,7 @@ bool isEmpty(Queue queue){
 int main(){
     struct SeqQueue queue;
     initQueue(&queue);
-    for (int i = 0; i < 7; ++i) {
+    for (int i = 0; i < 10; ++i) {
         offerQueue(&queue, i * 100);
     }
     printQueue(&queue);
